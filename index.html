@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leia's Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Leia's Gallery</div>
+        <ul class="nav-links">
+            <li><a href="#home" data-ko="홈" data-en="Home">Home</a></li>
+            <li><a href="#gallery" data-ko="갤러리" data-en="Gallery">Gallery</a></li>
+            <li><a href="#music" data-ko="음악" data-en="Music">Music</a></li>
+            <li><a href="#about" data-ko="소개" data-en="About">About</a></li>
+        </ul>
+        <button class="lang-btn" id="lang-btn" aria-label="언어 전환">EN</button>
+        <button class="mobile-menu-btn" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-ko="나의 세계에 오신 것을 환영해요" data-en="Welcome to My World">Welcome to My World</h1>
+            <p data-ko="그림과 음악으로 채운 나만의 공간" data-en="A space filled with my art and music">그림과 음악으로 채운 나만의 공간</p>
+            <div class="cta-group">
+                <a href="#gallery" class="cta-btn" data-ko="갤러리 보기" data-en="View Gallery">갤러리 보기</a>
+                <a href="#music" class="cta-btn cta-btn-outline" data-ko="음악 듣기" data-en="Listen to Music">음악 듣기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title" data-ko="나의 그림" data-en="My Artwork">My Artwork</h2>
+        <p class="section-desc" data-ko="직접 그린 그림들을 모아놓은 갤러리입니다" data-en="A gallery of my hand-drawn artwork">직접 그린 그림들을 모아놓은 갤러리입니다</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <div class="card-image">
+                    <img src="images/IMG_1518.PNG" alt="캐릭터 일러스트">
+                </div>
+                <div class="card-info">
+                    <h3 data-ko="The Only Way(Redrawn)" data-en="The Only Way(Redrawn)">The Only Way(Redrawn)</h3>
+                    <p data-ko="동물 캐릭터 컬러 일러스트" data-en="Animal character color illustration">동물 캐릭터 컬러 일러스트</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="card-image">
+                    <img src="images/IMG_1519.PNG" alt="캐릭터 스케치">
+                </div>
+                <div class="card-info">
+                    <h3 data-ko="The Only Way" data-en="The Only Way">The Only Way</h3>
+                    <p data-ko="동물 캐릭터 러프 스케치" data-en="Animal character rough sketch">동물 캐릭터 러프 스케치</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="닫기">&times;</button>
+        <button class="lightbox-prev" aria-label="이전">&#10094;</button>
+        <button class="lightbox-next" aria-label="다음">&#10095;</button>
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- Music Section -->
+    <section id="music" class="music-section">
+        <h2 class="section-title" data-ko="나의 음악" data-en="My Music">My Music</h2>
+        <p class="section-desc" data-ko="직접 만든 음악을 들어보세요" data-en="Listen to my original music">직접 만든 음악을 들어보세요</p>
+
+        <div class="music-player">
+            <div class="now-playing">
+                <div class="album-art">
+                    <div class="album-placeholder">&#9835;</div>
+                </div>
+                <div class="track-info">
+                    <h3 id="track-title" data-ko="곡을 선택하세요" data-en="Select a track">곡을 선택하세요</h3>
+                    <p id="track-artist">-</p>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <div class="progress-bar">
+                    <div class="progress-current" id="progress-current"></div>
+                </div>
+                <div class="time-display">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+                <div class="control-buttons">
+                    <button class="ctrl-btn" id="prev-btn" aria-label="이전 곡">&#10094;&#10094;</button>
+                    <button class="ctrl-btn play-btn" id="play-btn" aria-label="재생">&#9654;</button>
+                    <button class="ctrl-btn" id="next-btn" aria-label="다음 곡">&#10095;&#10095;</button>
+                </div>
+            </div>
+
+            <div class="playlist">
+                <h4>Playlist</h4>
+                <ul id="playlist">
+                    <li class="playlist-item" data-src="music/track1.mp3">
+                        <span class="track-number">01</span>
+                        <span class="track-name" data-ko="첫 번째 곡" data-en="Track One">첫 번째 곡</span>
+                        <span class="track-duration">-:--</span>
+                    </li>
+                    <li class="playlist-item" data-src="music/track2.mp3">
+                        <span class="track-number">02</span>
+                        <span class="track-name" data-ko="두 번째 곡" data-en="Track Two">두 번째 곡</span>
+                        <span class="track-duration">-:--</span>
+                    </li>
+                    <li class="playlist-item" data-src="music/track3.mp3">
+                        <span class="track-number">03</span>
+                        <span class="track-name" data-ko="세 번째 곡" data-en="Track Three">세 번째 곡</span>
+                        <span class="track-duration">-:--</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title" data-ko="소개" data-en="About Me">About Me</h2>
+            <div class="about-card">
+                <div class="about-avatar">
+                    <svg class="bunny-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 왼쪽 귀 -->
+                        <ellipse cx="72" cy="50" rx="20" ry="45" fill="#f0f6fb" stroke="#a0c4e8" stroke-width="2"/>
+                        <ellipse cx="72" cy="50" rx="12" ry="35" fill="#d0e8f8"/>
+                        <!-- 오른쪽 귀 -->
+                        <ellipse cx="128" cy="50" rx="20" ry="45" fill="#f0f6fb" stroke="#a0c4e8" stroke-width="2"/>
+                        <ellipse cx="128" cy="50" rx="12" ry="35" fill="#d0e8f8"/>
+                        <!-- 몸통 -->
+                        <ellipse cx="100" cy="150" rx="45" ry="40" fill="#f0f6fb" stroke="#a0c4e8" stroke-width="2"/>
+                        <!-- 얼굴 -->
+                        <circle cx="100" cy="108" r="42" fill="#f0f6fb" stroke="#a0c4e8" stroke-width="2"/>
+                        <!-- 볼터치 -->
+                        <circle cx="72" cy="118" r="10" fill="#d0e8f8" opacity="0.6"/>
+                        <circle cx="128" cy="118" r="10" fill="#d0e8f8" opacity="0.6"/>
+                        <!-- 눈 -->
+                        <circle cx="85" cy="103" r="5" fill="#2a3a50"/>
+                        <circle cx="115" cy="103" r="5" fill="#2a3a50"/>
+                        <circle cx="87" cy="101" r="2" fill="white"/>
+                        <circle cx="117" cy="101" r="2" fill="white"/>
+                        <!-- 코 -->
+                        <ellipse cx="100" cy="115" rx="4" ry="3" fill="#f2a6c0"/>
+                        <!-- 입 -->
+                        <path d="M96 120 Q100 126 104 120" fill="none" stroke="#f2a6c0" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="about-text">
+                    <h3 data-ko="안녕하세요!" data-en="Hello!">안녕하세요!</h3>
+                    <p data-ko="그림 그리기와 음악, 그리고 게임을 좋아하는 래아(Leia)입니다! 즐겁게 봐주시고 많이 좋아해 주세요!" data-en="I'm Leia, and I love drawing, music, and games! Please enjoy and show lots of love!">
+                        그림 그리기와 음악, 그리고 게임을 좋아하는 래아(Leia)입니다!
+                        즐겁게 봐주시고 많이 좋아해 주세요!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Leia's Gallery. All rights reserved.</p>
+    </footer>
+
+    <audio id="audio-player"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
